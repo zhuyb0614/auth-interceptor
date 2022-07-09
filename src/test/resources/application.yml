@@ -1,0 +1,6 @@
+spring:
+  profiles:
+    active: annotation
+server:
+  servlet:
+    context-path: /test

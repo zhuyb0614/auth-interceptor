@@ -1,7 +1,7 @@
 package com.github.zhuyb0614.auth.spi.impl;
 
 import com.github.zhuyb0614.auth.anno.Login;
-import com.github.zhuyb0614.auth.spi.AuthJudgeNode;
+import com.github.zhuyb0614.auth.spi.BaseAuthJudgeNode;
 import org.springframework.web.method.HandlerMethod;
 
 import javax.servlet.http.HttpServletRequest;
@@ -12,7 +12,7 @@ import java.util.Optional;
  * @version 1.0
  * @date 2022/5/16 6:36 下午
  */
-public class AnnotationJudge extends AuthJudgeNode {
+public class AnnotationJudge extends BaseAuthJudgeNode {
 
 
     @Override

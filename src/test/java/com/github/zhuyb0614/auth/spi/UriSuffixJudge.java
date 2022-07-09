@@ -11,7 +11,7 @@ import java.util.Optional;
  * @date 2022/5/18 4:34 下午
  */
 @Component
-public class UriSuffixJudge extends AuthJudgeNode {
+public class UriSuffixJudge extends BaseAuthJudgeNode {
     @Override
     public Optional<Boolean> judge(HttpServletRequest httpServletRequest, Object handler) {
         String requestURI = httpServletRequest.getRequestURI();

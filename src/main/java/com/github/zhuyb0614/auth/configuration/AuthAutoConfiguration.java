@@ -3,7 +3,7 @@ package com.github.zhuyb0614.auth.configuration;
 import com.github.zhuyb0614.auth.AuthProperties;
 import com.github.zhuyb0614.auth.AuthJudgeChain;
 import com.github.zhuyb0614.auth.interceptor.AuthInterceptor;
-import com.github.zhuyb0614.auth.spi.AuthJudgeNode;
+import com.github.zhuyb0614.auth.spi.BaseAuthJudgeNode;
 import com.github.zhuyb0614.auth.spi.AfterJudgeHandler;
 import com.github.zhuyb0614.auth.spi.TokenDecipher;
 import com.github.zhuyb0614.auth.spi.impl.AnnotationJudge;
@@ -50,7 +50,7 @@ public class AuthAutoConfiguration implements WebMvcConfigurer {
     @Autowired
     private AfterJudgeHandler afterJudgeHandler;
     @Autowired(required = false)
-    private List<AuthJudgeNode> needLoginJudgeNodes;
+    private List<BaseAuthJudgeNode> needLoginJudgeNodes;
     @Autowired
     private AuthProperties authProperties;
 
@@ -58,7 +58,7 @@ public class AuthAutoConfiguration implements WebMvcConfigurer {
         log.info(">>>>>> auth auto config properties {}", authProperties);
         AuthJudgeChain authJudgeChain = new AuthJudgeChain();
         if (!CollectionUtils.isEmpty(needLoginJudgeNodes)) {
-            for (AuthJudgeNode loginJudgeNode : needLoginJudgeNodes) {
+            for (BaseAuthJudgeNode loginJudgeNode : needLoginJudgeNodes) {
                 authJudgeChain.addNode(loginJudgeNode);
                 logLoginJudge(loginJudgeNode.getClass().getSimpleName());
             }

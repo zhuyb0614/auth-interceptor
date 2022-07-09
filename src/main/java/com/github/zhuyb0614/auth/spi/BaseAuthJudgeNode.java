@@ -11,8 +11,8 @@ import java.util.Optional;
  * @version 1.0
  * @date 2022/5/17 5:08 下午
  */
-public abstract class AuthJudgeNode {
-    protected AuthJudgeNode next;
+public abstract class BaseAuthJudgeNode {
+    protected BaseAuthJudgeNode next;
 
     /**
      * 是否可选登录,多个实现共同处理,只要一个被校验到即可生效
@@ -49,7 +49,7 @@ public abstract class AuthJudgeNode {
      *
      * @param next
      */
-    public void setNext(AuthJudgeNode next) {
+    public void setNext(BaseAuthJudgeNode next) {
         this.next = next;
     }
 

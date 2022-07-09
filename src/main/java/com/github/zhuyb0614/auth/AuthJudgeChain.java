@@ -1,6 +1,6 @@
 package com.github.zhuyb0614.auth;
 
-import com.github.zhuyb0614.auth.spi.AuthJudgeNode;
+import com.github.zhuyb0614.auth.spi.BaseAuthJudgeNode;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
@@ -11,10 +11,10 @@ import java.util.Optional;
  * @date 2022/5/17 5:00 下午
  */
 public class AuthJudgeChain {
-    private AuthJudgeNode first;
-    private AuthJudgeNode last;
+    private BaseAuthJudgeNode first;
+    private BaseAuthJudgeNode last;
 
-    public synchronized void addNode(AuthJudgeNode node) {
+    public synchronized void addNode(BaseAuthJudgeNode node) {
         if (first == null) {
             first = node;
         } else {

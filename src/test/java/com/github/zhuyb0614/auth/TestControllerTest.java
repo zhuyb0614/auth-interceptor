@@ -4,7 +4,7 @@ import com.github.zhuyb0614.auth.controller.TestController;
 import com.github.zhuyb0614.auth.interceptor.AuthInterceptor;
 import com.github.zhuyb0614.auth.mock.ParseIntTokenDecipher;
 import com.github.zhuyb0614.auth.mock.UserIdArgumentResolver;
-import com.github.zhuyb0614.auth.spi.AuthJudgeNode;
+import com.github.zhuyb0614.auth.spi.BaseAuthJudgeNode;
 import com.github.zhuyb0614.auth.spi.impl.AnnotationJudge;
 import com.github.zhuyb0614.auth.spi.impl.DefaultAfterJudgeHandler;
 import com.github.zhuyb0614.auth.spi.impl.UriPrefixJudge;
@@ -38,7 +38,7 @@ public class TestControllerTest {
 
     private MockMvc mockMvc;
     @Autowired(required = false)
-    private List<AuthJudgeNode> authJudgeNodes;
+    private List<BaseAuthJudgeNode> authJudgeNodes;
     @Autowired
     private AuthProperties authProperties;
 
@@ -47,7 +47,7 @@ public class TestControllerTest {
         log.info(">>>>>>  auth interceptor init start");
         AuthJudgeChain authJudgeChain = new AuthJudgeChain();
         if (!CollectionUtils.isEmpty(authJudgeNodes)) {
-            for (AuthJudgeNode loginJudgeNode : authJudgeNodes) {
+            for (BaseAuthJudgeNode loginJudgeNode : authJudgeNodes) {
                 authJudgeChain.addNode(loginJudgeNode);
                 logLoginJudge(loginJudgeNode.getClass().getSimpleName());
             }

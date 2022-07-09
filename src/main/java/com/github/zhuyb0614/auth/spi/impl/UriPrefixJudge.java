@@ -1,7 +1,7 @@
 package com.github.zhuyb0614.auth.spi.impl;
 
 import com.github.zhuyb0614.auth.AuthProperties;
-import com.github.zhuyb0614.auth.spi.AuthJudgeNode;
+import com.github.zhuyb0614.auth.spi.BaseAuthJudgeNode;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.Optional;
@@ -11,7 +11,7 @@ import java.util.Optional;
  * @version 1.0
  * @date 2022/5/16 6:40 下午
  */
-public class UriPrefixJudge extends AuthJudgeNode {
+public class UriPrefixJudge extends BaseAuthJudgeNode {
     private AuthProperties authProperties;
     private String authUriPrefix;
     private String authOptionalUriPrefix;

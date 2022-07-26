@@ -1,5 +1,5 @@
-auth:
-  biz-line: test
-  enable-uri-prefix-valid: true
-  auth-uri-prefix: /auth
-  auth-optional-uri-prefix: /auth-opt
+yb:
+  auth:
+    enable-uri-prefix-valid: true
+    auth-uri-prefix: /auth
+    auth-optional-uri-prefix: /auth-opt

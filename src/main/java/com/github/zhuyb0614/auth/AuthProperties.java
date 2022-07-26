@@ -9,21 +9,21 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  * @date 2022/5/16 6:41 下午
  */
 @Data
-@ConfigurationProperties(prefix = "auth")
+@ConfigurationProperties(prefix = "yb.auth")
 public class AuthProperties {
     public static final String URL_SEPARATOR = "/";
     /**
      * 是否开启权限校验拦截器
      */
-    private String openSwitch = "on";
+    private boolean openSwitch = true;
     /**
      * 是否开启注解校验
      */
-    private boolean enableAnnotationValid = Boolean.FALSE;
+    private boolean enableAnnotationValid = false;
     /**
      * 是否开启URI前缀校验
      */
-    private boolean enableUriPrefixValid = Boolean.FALSE;
+    private boolean enableUriPrefixValid = false;
     /**
      * 必须登录接口前缀
      */
@@ -33,33 +33,10 @@ public class AuthProperties {
      */
     private String authOptionalUriPrefix = URL_SEPARATOR;
 
-    public boolean isEnableAnnotationValid() {
-        return enableAnnotationValid;
-    }
-
-    public void setEnableAnnotationValid(boolean enableAnnotationValid) {
-        this.enableAnnotationValid = enableAnnotationValid;
-    }
-
-    public boolean isEnableUriPrefixValid() {
-        return enableUriPrefixValid;
-    }
-
-    public void setEnableUriPrefixValid(boolean enableUriPrefixValid) {
-        this.enableUriPrefixValid = enableUriPrefixValid;
-    }
-
-    public String getAuthOptionalUriPrefix() {
-        return authOptionalUriPrefix;
-    }
 
     public void setAuthOptionalUriPrefix(String authOptionalUriPrefix) {
         validPrefix(authOptionalUriPrefix);
         this.authOptionalUriPrefix = authOptionalUriPrefix;
-    }
-
-    public String getAuthUriPrefix() {
-        return authUriPrefix;
     }
 
     public void setAuthUriPrefix(String authUriPrefix) {

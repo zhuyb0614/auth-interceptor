@@ -1,6 +1,6 @@
-auth:
-  biz-line: test
-  enable-annotation-valid: true
-  enable-uri-prefix-valid: true
-  auth-uri-prefix: /auth
-  auth-optional-uri-prefix: /auth-opt
+yb:
+  auth:
+    enable-annotation-valid: true
+    enable-uri-prefix-valid: true
+    auth-uri-prefix: /auth
+    auth-optional-uri-prefix: /auth-opt

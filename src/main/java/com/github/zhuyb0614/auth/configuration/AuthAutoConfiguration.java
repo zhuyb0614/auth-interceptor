@@ -39,7 +39,7 @@ import java.util.List;
 )
 @ConditionalOnClass({Servlet.class, DispatcherServlet.class, WebMvcConfigurer.class})
 @ConditionalOnBean(TokenDecipher.class)
-@ConditionalOnProperty(name = "auth.open-switch", havingValue = "on", matchIfMissing = true)
+@ConditionalOnProperty(name = "yb.auth.open-switch", havingValue = "true", matchIfMissing = true)
 @AutoConfigureAfter({WebMvcAutoConfiguration.class})
 @EnableConfigurationProperties(AuthProperties.class)
 @Slf4j

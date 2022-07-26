@@ -1,4 +1,0 @@
-auth:
-  biz-line: test
-  enable-gateway-auth: true
-  user-id-header-name: user-id
